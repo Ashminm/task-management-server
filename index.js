@@ -1,12 +1,14 @@
 require('dotenv').config()
 const express =require('express')
 const cors=require('cors')
-require('./Connection/database')
-const router=require('./Routers/route')
 
 const tasks=express()
 tasks.use(cors())
 tasks.use(express.json())
+
+const router=require('./Routers/route')
+require('./Connection/database')
+
 tasks.use(router)
 
 
