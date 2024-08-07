@@ -1,5 +1,7 @@
 const mongoose=require('mongoose')
 
+// mongoose schema
+
 const taskMangmtSchema=new mongoose.Schema({
     title:{
         type:String

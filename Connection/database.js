@@ -1,5 +1,7 @@
 const mongoose=require('mongoose')
 
+
+// database connection 
 const Connection=process.env.DATABASE
 mongoose.connect(Connection).then((res)=>{
     console.log('Atles Connection Established!');
