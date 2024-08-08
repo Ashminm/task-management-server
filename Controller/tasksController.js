@@ -1,6 +1,6 @@
 const tasks=require('../Model/tasksModel')
 
-// controller
+// controller functions
 
 exports.getTask=async(req,res)=>{
       try{
@@ -61,6 +61,15 @@ exports.singleTask=async(req,res)=>{
         const taskId=req.params.id
         const sTask=await tasks.findOne({_id:taskId})
         res.status(200).json(sTask)
+    }catch(err){
+        res.status(401).json(err)
+    }
+}
+
+exports.DeleteAll=async(req,res)=>{
+    try{
+        const result=await tasks.deleteMany()
+        res.status(200).json(result)
     }catch(err){
         res.status(401).json(err)
     }
