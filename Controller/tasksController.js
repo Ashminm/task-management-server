@@ -3,8 +3,12 @@ const tasks=require('../Model/tasksModel')
 // controller functions
 
 exports.getTask=async(req,res)=>{
+    const searchKey=req.query.search
+    const query={
+        title:{$regex:searchKey,$options:'i'}
+    }
       try{
-        const allTasks=await tasks.find()
+        const allTasks=await tasks.find(query)
         res.status(200).json(allTasks)
       }catch(err){
         res.status(401).json(err)
